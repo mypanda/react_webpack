@@ -1,3 +1,4 @@
+// webpack 配置文件
 'use strict';
 
 var path = require('path');
@@ -9,7 +10,9 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:7000',
         'webpack/hot/only-dev-server',
+        // react 编译
         'react-hot-loader/patch',
+        // 入口文件
         path.join(__dirname, 'app/index.js')
     ],
     output: {
@@ -18,6 +21,7 @@ module.exports = {
         publicPath: '/'
     },
     plugins: [
+        // 需要一个index.tpl.html的模板，默认添加bundle.js
         new HtmlWebpackPlugin({
           template: './app/index.tpl.html',
           inject: 'body',
